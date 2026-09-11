@@ -39,7 +39,7 @@ const bodyFont = Platform.select({
 
 const TRANSLATIONS = {
   el: {
-    nav: [['Υπηρεσίες', 'services'], ['Δουλειά μας', 'work'], ['Διαδικασία', 'process']],
+    nav: [['Υπηρεσίες', 'services'], ['Η δουλειά μας', 'work'], ['Διαδικασία', 'process']],
     talk: 'Ας μιλήσουμε',
     contactNav: 'Επικοινωνία',
     openMenu: 'Άνοιγμα μενού',
