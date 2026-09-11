@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
   Easing,
+  Image,
   Linking,
   Platform,
   Pressable,
@@ -155,10 +156,12 @@ const TRANSLATIONS = {
 function Brand({ light = false }) {
   return (
     <View style={styles.brand} accessibilityLabel="BuildInBlu">
-      <View style={[styles.logoCircle, light && styles.logoCircleLight]}>
-        <Text style={[styles.logoCloud, light && { color: COLORS.blue }]}>☁</Text>
-        <Text style={[styles.logoCode, light && { color: COLORS.white }]}>{'<>'}</Text>
-      </View>
+      <Image
+        source={require('./public/logo-buildinblu.png')}
+        style={styles.logoImage}
+        resizeMode="cover"
+        accessible={false}
+      />
       <Text style={[styles.brandText, light && { color: COLORS.white }]}>buildin<Text style={styles.blueText}>blu</Text></Text>
     </View>
   );
@@ -219,8 +222,12 @@ function HeroOrb({ compact, copy }) {
       <View style={[styles.orb, { width: size, height: size, borderRadius: size / 2 }]} />
 
       <Animated.View style={[styles.cloudMark, { transform: [{ translateY: floatValue }] }]}>
-        <Text style={[styles.heroCloud, compact && { fontSize: 126 }]}>☁</Text>
-        <Text style={[styles.heroCode, compact && { fontSize: 35 }]}>{'<  >'}</Text>
+        <Image
+          source={require('./public/logo-buildinblu.png')}
+          style={[styles.heroLogoImage, compact && styles.heroLogoImageCompact]}
+          resizeMode="cover"
+          accessible={false}
+        />
       </Animated.View>
 
       <View style={[styles.floatingBadge, styles.uptimeBadge, compact && { left: 0, top: 55 }]}>
@@ -574,10 +581,7 @@ const styles = StyleSheet.create({
     zIndex: 30,
   },
   brand: { flexDirection: 'row', alignItems: 'center', gap: 9 },
-  logoCircle: { width: 37, height: 37, borderRadius: 19, backgroundColor: COLORS.blue, alignItems: 'center', justifyContent: 'center' },
-  logoCircleLight: { backgroundColor: COLORS.white },
-  logoCloud: { color: COLORS.white, fontSize: 25, lineHeight: 29, transform: [{ translateY: -1 }] },
-  logoCode: { position: 'absolute', color: COLORS.blue, fontFamily: 'monospace', fontSize: 9, fontWeight: '900', top: 15 },
+  logoImage: { width: 42, height: 42, borderRadius: 10 },
   brandText: { color: COLORS.ink, fontFamily: headingFont, fontSize: 23, fontWeight: '800', letterSpacing: -1 },
   blueText: { color: COLORS.blue },
   desktopNav: { marginLeft: 'auto', flexDirection: 'row', alignItems: 'center', gap: 12 },
@@ -618,12 +622,12 @@ const styles = StyleSheet.create({
   textLinkText: { color: COLORS.ink, fontFamily: bodyFont, fontSize: 13, fontWeight: '700' },
   orbArea: { width: '43%', height: 460, alignItems: 'center', justifyContent: 'center' },
   orbAreaCompact: { width: '100%', height: 390, marginTop: 42 },
-  orb: { position: 'absolute', backgroundColor: COLORS.blue, ...Platform.select({ web: { boxShadow: '0 32px 72px rgba(29,86,243,.22)' }, default: { elevation: 9 } }) },
+  orb: { position: 'absolute', backgroundColor: '#1859F5', ...Platform.select({ web: { boxShadow: '0 32px 72px rgba(29,86,243,.22)' }, default: { elevation: 9 } }) },
   orbit: { position: 'absolute', borderWidth: 1, borderColor: 'rgba(29,86,243,.2)' },
   orbitOuter: { borderStyle: 'dashed', borderColor: 'rgba(29,86,243,.16)' },
   cloudMark: { zIndex: 2, alignItems: 'center', justifyContent: 'center' },
-  heroCloud: { color: COLORS.white, fontSize: 153, lineHeight: 175, ...Platform.select({ web: { textShadow: '0 18px 18px rgba(0,0,0,.16)' } }) },
-  heroCode: { position: 'absolute', color: COLORS.blue, fontFamily: 'monospace', fontSize: 43, fontWeight: '900', top: '39%' },
+  heroLogoImage: { width: 320, height: 320, borderRadius: 160 },
+  heroLogoImageCompact: { width: 260, height: 260, borderRadius: 130 },
   floatingBadge: { position: 'absolute', zIndex: 5, paddingHorizontal: 14, paddingVertical: 11, borderRadius: 13, backgroundColor: 'rgba(255,255,255,.94)', flexDirection: 'row', alignItems: 'center', gap: 9, ...Platform.select({ web: { boxShadow: '0 15px 30px rgba(24,35,64,.13)' }, default: { elevation: 7 } }) },
   uptimeBadge: { left: -10, top: 74, transform: [{ rotate: '-4deg' }] },
   codeBadge: { right: -10, bottom: 68, transform: [{ rotate: '5deg' }] },
