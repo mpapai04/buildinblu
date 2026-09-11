@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "BuildInBlu",
+    "slug": "buildinblu",
+    "version": "1.0.0",
+    "icon": "./public/app-icon.png",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#f7f8fa",
+    "primaryColor": "#1d56f3",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.buildinblu.app"
+    },
+    "android": {
+      "package": "com.buildinblu.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#1d56f3"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./public/favicon.png",
+      "name": "BuildInBlu — Software & Cloud",
+      "shortName": "BuildInBlu",
+      "backgroundColor": "#f7f8fa",
+      "themeColor": "#1d56f3"
+    }
+  }
+}
