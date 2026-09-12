@@ -74,6 +74,21 @@ const TRANSLATIONS = {
       titleAccent: 'Περισσότερο build.',
       body: 'Δεν πουλάμε έτοιμα templates. Καταλαβαίνουμε πρώτα το πρόβλημα, σχεδιάζουμε τη σωστή λύση και χτίζουμε κάτι που αντέχει.',
       action: 'Πες μας την ιδέα σου',
+      more: 'Δες περισσότερα',
+    },
+    projectsPage: {
+      back: 'Πίσω στην αρχική',
+      eyebrow: 'Η ΔΟΥΛΕΙΑ ΜΑΣ',
+      title: 'Projects που\nμιλούν για εμάς.',
+      intro: 'Μερικά από τα ψηφιακά προϊόντα που σχεδιάζουμε και χτίζουμε — με καθαρή σκέψη, δυνατό design και κώδικα που αντέχει.',
+      ctaEyebrow: 'ΤΟ ΕΠΟΜΕΝΟ PROJECT',
+      ctaTitle: 'Να χτίσουμε κάτι μαζί;',
+      ctaAction: 'Πες μας την ιδέα σου',
+      projects: [
+        { number: '01', type: 'PERSONAL WEBSITE', year: '2026', title: 'Marios Papaiosif', body: 'Ένα σύγχρονο personal website για Software Engineer, σχεδιασμένο ώστε να παρουσιάζει καθαρά το προφίλ, την εμπειρία και τα projects του.', tags: ['DESIGN', 'DEVELOPMENT'], color: '#1D56F3', url: 'https://mariospapaiosif.com' },
+        { number: '02', type: 'NUTRITION SOFTWARE', year: '2026', title: 'Geumio', body: 'Μια εφαρμογή nutrition coaching για διαιτολόγους και πελάτες, με καταγραφή γευμάτων, AI εκτίμηση θερμίδων και εξατομικευμένο feedback σε ένα κοινό περιβάλλον.', tags: ['PRODUCT', 'SOFTWARE', 'AI'], color: '#101114', url: 'https://www.geumio.com' },
+        { number: '03', type: 'DIRECTORY PLATFORM', year: '2026', title: 'Diatrofologoi.com', body: 'Μια δημόσια πλατφόρμα αναζήτησης διατροφολόγων σε Κύπρο και Ελλάδα, με επαγγελματικά προφίλ και απλή σύνδεση με νέους πελάτες.', tags: ['DIRECTORY', 'PLATFORM', 'HEALTH'], color: '#E85973', url: 'https://www.diatrofologoi.com/' },
+      ],
     },
     dashboard: { overview: 'Επισκόπηση', projects: 'PROJECTS', uptime: 'UPTIME', response: 'ΑΠΟΚΡΙΣΗ', online: 'online', performance: 'Απόδοση', range: 'Τελευταίες 30 ημέρες' },
     processEyebrow: 'ΠΩΣ ΔΟΥΛΕΥΟΥΜΕ',
@@ -90,7 +105,7 @@ const TRANSLATIONS = {
       title: 'Ας χτίσουμε',
       titleSecond: 'κάτι ',
       body: 'Πες μας δυο λόγια για το project σου και θα επιστρέψουμε με ιδέες, όχι με sales pitch.',
-      action: 'Στείλε μας\nμήνυμα',
+      action: 'Στείλε μας μήνυμα',
     },
     footer: 'Software & Cloud',
     rights: 'Με επιφύλαξη παντός δικαιώματος.',
@@ -130,6 +145,21 @@ const TRANSLATIONS = {
       titleAccent: 'More building.',
       body: 'We don’t sell ready-made templates. We understand the problem first, design the right solution, and build something that lasts.',
       action: 'Tell us your idea',
+      more: 'See more',
+    },
+    projectsPage: {
+      back: 'Back to home',
+      eyebrow: 'OUR WORK',
+      title: 'Projects that\nspeak for us.',
+      intro: 'A selection of the digital products we design and build — with clear thinking, strong design, and code made to last.',
+      ctaEyebrow: 'THE NEXT PROJECT',
+      ctaTitle: 'Shall we build something together?',
+      ctaAction: 'Tell us your idea',
+      projects: [
+        { number: '01', type: 'PERSONAL WEBSITE', year: '2026', title: 'Marios Papaiosif', body: 'A modern personal website for a Software Engineer, designed to present his profile, experience, and projects with clarity.', tags: ['DESIGN', 'DEVELOPMENT'], color: '#1D56F3', url: 'https://mariospapaiosif.com' },
+        { number: '02', type: 'NUTRITION SOFTWARE', year: '2026', title: 'Geumio', body: 'A nutrition coaching app for dietitians and clients, with meal logging, AI-powered calorie estimates, and personalized feedback in one shared place.', tags: ['PRODUCT', 'SOFTWARE', 'AI'], color: '#101114', url: 'https://www.geumio.com' },
+        { number: '03', type: 'DIRECTORY PLATFORM', year: '2026', title: 'Diatrofologoi.com', body: 'A public platform for finding dietitians across Cyprus and Greece, with professional profiles and a simple path to connecting with new clients.', tags: ['DIRECTORY', 'PLATFORM', 'HEALTH'], color: '#E85973', url: 'https://www.diatrofologoi.com/' },
+      ],
     },
     dashboard: { overview: 'Overview', projects: 'PROJECTS', uptime: 'UPTIME', response: 'RESPONSE', online: 'online', performance: 'Performance', range: 'Last 30 days' },
     processEyebrow: 'HOW WE WORK',
@@ -146,14 +176,14 @@ const TRANSLATIONS = {
       title: 'Let’s build',
       titleSecond: 'something ',
       body: 'Tell us a little about your project and we’ll come back with ideas, not a sales pitch.',
-      action: 'Send us a\nmessage',
+      action: 'Send us a message',
     },
     footer: 'Software & Cloud',
     rights: 'All rights reserved.',
   },
 };
 
-function Brand({ light = false }) {
+function Brand({ light = false, compact = false }) {
   return (
     <View style={styles.brand} accessibilityLabel="BuildInBlu">
       <Image
@@ -162,7 +192,7 @@ function Brand({ light = false }) {
         resizeMode="cover"
         accessible={false}
       />
-      <Text style={[styles.brandText, light && { color: COLORS.white }]}>buildin<Text style={styles.blueText}>blu</Text></Text>
+      {!compact && <Text style={[styles.brandText, light && { color: COLORS.white }]}>buildin<Text style={styles.blueText}>blu</Text></Text>}
     </View>
   );
 }
@@ -362,6 +392,113 @@ function LanguageToggle({ language, onChange, compact }) {
   );
 }
 
+function ProjectCard({ project, width, compact }) {
+  return (
+    <Pressable
+      accessibilityRole={project.url ? 'link' : 'summary'}
+      accessibilityLabel={`${project.title} — ${project.type}`}
+      disabled={!project.url}
+      onPress={() => project.url && Linking.openURL(project.url)}
+      style={({ pressed, hovered }) => [
+        styles.projectCard,
+        { width },
+        project.url && styles.projectCardInteractive,
+        project.url && (pressed || hovered) && styles.projectCardActive,
+      ]}
+    >
+      <View style={[styles.projectVisual, { backgroundColor: project.color }, compact && styles.projectVisualCompact]}>
+        <View style={styles.projectGlow} />
+        <Text style={styles.projectVisualNumber}>{project.number}</Text>
+        {project.url && <Text style={styles.projectExternalArrow}>↗</Text>}
+        <View style={styles.projectMockup}>
+          <View style={styles.projectMockupTopbar}>
+            <View style={styles.projectMockupDots}>
+              {[0, 1, 2].map((dot) => <View key={dot} style={styles.projectMockupDot} />)}
+            </View>
+          </View>
+          <View style={styles.projectMockupBody}>
+            <View style={styles.projectMockupRail} />
+            <View style={styles.projectMockupContent}>
+              <View style={styles.projectMockupTitle} />
+              <View style={styles.projectMockupLine} />
+              <View style={styles.projectMockupTiles}>
+                <View style={[styles.projectMockupTile, styles.projectMockupTileFeatured]} />
+                <View style={styles.projectMockupTile} />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+
+      <View style={styles.projectCardContent}>
+        <View style={styles.projectMeta}>
+          <Text style={styles.projectType}>{project.type}</Text>
+          <Text style={styles.projectYear}>{project.year}</Text>
+        </View>
+        <Text style={styles.projectTitle}>{project.title}</Text>
+        <Text style={styles.projectBody}>{project.body}</Text>
+        <View style={styles.projectTags}>
+          {project.tags.map((tag) => <Text key={tag} style={styles.projectTag}>{tag}</Text>)}
+        </View>
+      </View>
+    </Pressable>
+  );
+}
+
+function ProjectsPage({ copy, language, onLanguageChange, onBack, compact, shellWidth, viewportWidth, openInstagram, footer, rights }) {
+  const cardWidth = compact ? shellWidth : (shellWidth - 18) / 2;
+
+  return (
+    <SafeAreaView style={styles.safeArea} accessibilityLanguage={language === 'el' ? 'el-GR' : 'en-US'}>
+      <StatusBar barStyle="dark-content" backgroundColor={COLORS.paper} />
+      <View style={[styles.header, { paddingHorizontal: Math.max(16, (viewportWidth - 1180) / 2) }]}>
+        <Pressable onPress={onBack} accessibilityRole="button" accessibilityLabel={copy.back}>
+          <Brand compact={compact} />
+        </Pressable>
+        <View style={styles.headerControls}>
+          <LanguageToggle language={language} onChange={onLanguageChange} compact={compact} />
+          <Pressable onPress={onBack} accessibilityRole="link" style={styles.projectsBackButton}>
+            <Text style={styles.projectsBackText}>← {copy.back}</Text>
+          </Pressable>
+        </View>
+      </View>
+
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.projectsScroll} showsVerticalScrollIndicator={false}>
+        <View style={[styles.projectsHero, { width: shellWidth }, compact && styles.projectsHeroCompact]}>
+          <Eyebrow>{copy.eyebrow}</Eyebrow>
+          <View style={[styles.projectsHeadingRow, compact && styles.projectsHeadingStack]}>
+            <Text style={[styles.projectsTitle, compact && styles.projectsTitleCompact]}>{copy.title}</Text>
+            <Text style={[styles.projectsIntro, compact && styles.projectsIntroCompact]}>{copy.intro}</Text>
+          </View>
+        </View>
+
+        <View style={[styles.projectsGrid, { width: shellWidth }]}>
+          {copy.projects.map((project) => (
+            <ProjectCard key={project.number} project={project} width={cardWidth} compact={compact} />
+          ))}
+        </View>
+
+        <View style={[styles.projectsCta, { width: compact ? '100%' : shellWidth }, compact && styles.projectsCtaCompact]}>
+          <View>
+            <Eyebrow light>{copy.ctaEyebrow}</Eyebrow>
+            <Text style={[styles.projectsCtaTitle, compact && styles.projectsCtaTitleCompact]}>{copy.ctaTitle}</Text>
+          </View>
+          <ActionButton light onPress={openInstagram}>{copy.ctaAction}</ActionButton>
+        </View>
+
+        <View style={[styles.footer, { width: shellWidth }, compact && styles.footerCompact]}>
+          <Pressable onPress={onBack} accessibilityRole="button"><Brand /></Pressable>
+          <Text style={styles.footerText}>{footer}</Text>
+          <View style={styles.footerLinks}>
+            <Pressable onPress={openInstagram}><Text style={styles.footerLink}>Instagram</Text></Pressable>
+          </View>
+          <Text style={styles.copyright}>© {new Date().getFullYear()} BuildInBlu. {rights}</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
 export default function App() {
   const { width } = useWindowDimensions();
   const scrollRef = useRef(null);
@@ -370,6 +507,11 @@ export default function App() {
   const tickerX = useRef(new Animated.Value(0)).current;
   const [menuOpen, setMenuOpen] = useState(false);
   const [language, setLanguage] = useState('el');
+  const [page, setPage] = useState(() => (
+    Platform.OS === 'web' && typeof window !== 'undefined' && window.location.hash === '#projects'
+      ? 'projects'
+      : 'home'
+  ));
   const sectionPositions = useRef({});
   const t = TRANSLATIONS[language];
 
@@ -394,6 +536,17 @@ export default function App() {
     return () => ticker.stop();
   }, [introOpacity, introY, tickerX]);
 
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof window === 'undefined') return undefined;
+    const syncPageWithUrl = () => setPage(window.location.hash === '#projects' ? 'projects' : 'home');
+    window.addEventListener('hashchange', syncPageWithUrl);
+    window.addEventListener('popstate', syncPageWithUrl);
+    return () => {
+      window.removeEventListener('hashchange', syncPageWithUrl);
+      window.removeEventListener('popstate', syncPageWithUrl);
+    };
+  }, []);
+
   const navItems = useMemo(() => t.nav, [t]);
 
   const jumpTo = (section) => {
@@ -407,6 +560,35 @@ export default function App() {
   };
 
   const openInstagram = () => Linking.openURL('https://www.instagram.com/buildinblu/');
+
+  const navigateToPage = (nextPage) => {
+    setMenuOpen(false);
+    setPage(nextPage);
+    if (Platform.OS === 'web' && typeof window !== 'undefined') {
+      const nextUrl = nextPage === 'projects'
+        ? `${window.location.pathname}${window.location.search}#projects`
+        : `${window.location.pathname}${window.location.search}`;
+      window.history.pushState({}, '', nextUrl);
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  };
+
+  if (page === 'projects') {
+    return (
+      <ProjectsPage
+        copy={t.projectsPage}
+        language={language}
+        onLanguageChange={setLanguage}
+        onBack={() => navigateToPage('home')}
+        compact={compact}
+        shellWidth={shellWidth}
+        viewportWidth={width}
+        openInstagram={openInstagram}
+        footer={t.footer}
+        rights={t.rights}
+      />
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safeArea} accessibilityLanguage={language === 'el' ? 'el-GR' : 'en-US'}>
@@ -514,7 +696,17 @@ export default function App() {
               <Eyebrow light>{t.work.eyebrow}</Eyebrow>
               <Text style={[styles.workTitle, compact && styles.workTitleCompact]}>{t.work.title}{`\n`}<Text style={{ color: '#7EA1FF' }}>{t.work.titleAccent}</Text></Text>
               <Text style={styles.workBody}>{t.work.body}</Text>
-              <ActionButton light onPress={() => jumpTo('contact')}>{t.work.action}</ActionButton>
+              <View style={styles.workActions}>
+                <ActionButton light onPress={() => jumpTo('contact')}>{t.work.action}</ActionButton>
+                <Pressable
+                  accessibilityRole="link"
+                  onPress={() => navigateToPage('projects')}
+                  style={({ pressed, hovered }) => [styles.workMoreLink, (pressed || hovered) && styles.workMoreLinkActive]}
+                >
+                  <Text style={styles.workMoreText}>{t.work.more}</Text>
+                  <Arrow color={COLORS.white} />
+                </Pressable>
+              </View>
             </View>
             <View style={[styles.dashboardWrap, !(compact || tablet) && { width: '55%' }]}>
               <Dashboard compact={compact} copy={t.dashboard} />
@@ -668,6 +860,10 @@ const styles = StyleSheet.create({
   workTitle: { color: COLORS.white, fontFamily: headingFont, fontSize: 59, lineHeight: 58, fontWeight: '900', letterSpacing: -3.2 },
   workTitleCompact: { fontSize: 44, lineHeight: 45, letterSpacing: -2.3 },
   workBody: { maxWidth: 470, marginTop: 26, marginBottom: 32, color: '#AEB1BA', fontFamily: bodyFont, fontSize: 15, lineHeight: 25 },
+  workActions: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 22 },
+  workMoreLink: { minHeight: 56, paddingHorizontal: 5, borderBottomWidth: 1, borderBottomColor: 'rgba(255,255,255,.45)', flexDirection: 'row', alignItems: 'center', gap: 10, ...Platform.select({ web: { cursor: 'pointer' } }) },
+  workMoreLinkActive: { opacity: 0.72 },
+  workMoreText: { color: COLORS.white, fontFamily: bodyFont, fontSize: 14, fontWeight: '700' },
   dashboardWrap: { width: '100%', alignItems: 'center' },
   dashboardShell: { width: '100%', minHeight: 410, borderWidth: 1, borderColor: '#383A42', borderRadius: 18, backgroundColor: '#17181D', overflow: 'visible', ...Platform.select({ web: { boxShadow: '0 44px 90px rgba(0,0,0,.38)' }, default: { elevation: 10 } }) },
   dashboardShellCompact: { minHeight: 315 },
@@ -715,11 +911,55 @@ const styles = StyleSheet.create({
   contactAction: { zIndex: 2, height: '100%', maxWidth: 350, alignItems: 'flex-end', justifyContent: 'space-between', gap: 40 },
   contactActionCompact: { height: 'auto', maxWidth: '100%', alignItems: 'flex-start' },
   contactBody: { color: 'rgba(255,255,255,.76)', fontFamily: bodyFont, fontSize: 16, lineHeight: 26 },
-  roundButton: { width: 150, height: 150, padding: 25, borderRadius: 75, backgroundColor: COLORS.white, alignItems: 'flex-start', justifyContent: 'space-between' },
+  roundButton: { minWidth: 205, minHeight: 60, paddingHorizontal: 24, paddingVertical: 16, borderRadius: 30, backgroundColor: COLORS.white, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 20, ...Platform.select({ web: { cursor: 'pointer' } }) },
   roundButtonPressed: { transform: [{ scale: 0.96 }] },
   roundButtonText: { color: COLORS.ink, fontFamily: bodyFont, fontSize: 14, fontWeight: '800' },
   contactRingOuter: { position: 'absolute', width: 500, height: 500, right: -130, bottom: -270, borderWidth: 1, borderColor: 'rgba(255,255,255,.12)', borderRadius: 250 },
   contactRingInner: { position: 'absolute', width: 360, height: 360, right: -60, bottom: -200, borderWidth: 1, borderColor: 'rgba(255,255,255,.12)', borderRadius: 180 },
+  projectsScroll: { paddingBottom: 0 },
+  projectsBackButton: { minHeight: 42, paddingHorizontal: 17, borderRadius: 22, backgroundColor: COLORS.ink, alignItems: 'center', justifyContent: 'center', ...Platform.select({ web: { cursor: 'pointer' } }) },
+  projectsBackText: { color: COLORS.white, fontFamily: bodyFont, fontSize: 12, fontWeight: '700' },
+  projectsHero: { alignSelf: 'center', paddingTop: 112, paddingBottom: 72 },
+  projectsHeroCompact: { paddingTop: 78, paddingBottom: 52 },
+  projectsHeadingRow: { marginTop: 22, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', gap: 50 },
+  projectsHeadingStack: { flexDirection: 'column', alignItems: 'flex-start', gap: 26 },
+  projectsTitle: { flex: 1, color: COLORS.ink, fontFamily: headingFont, fontSize: 76, lineHeight: 72, fontWeight: '900', letterSpacing: -4.2 },
+  projectsTitleCompact: { flex: 0, width: '100%', fontSize: 50, lineHeight: 49, letterSpacing: -2.8 },
+  projectsIntro: { width: '38%', maxWidth: 430, color: COLORS.muted, fontFamily: bodyFont, fontSize: 16, lineHeight: 26 },
+  projectsIntroCompact: { width: '100%', maxWidth: 560 },
+  projectsGrid: { alignSelf: 'center', paddingBottom: 120, flexDirection: 'row', flexWrap: 'wrap', gap: 18 },
+  projectCard: { borderWidth: 1, borderColor: COLORS.line, borderRadius: 26, backgroundColor: COLORS.white, overflow: 'hidden', ...Platform.select({ web: { boxShadow: '0 18px 48px rgba(16,17,20,.07)' }, default: { elevation: 3 } }) },
+  projectCardInteractive: { ...Platform.select({ web: { cursor: 'pointer', transitionDuration: '180ms' } }) },
+  projectCardActive: { opacity: 0.94, transform: [{ translateY: -3 }] },
+  projectVisual: { height: 315, padding: 26, overflow: 'hidden', justifyContent: 'center', alignItems: 'center' },
+  projectVisualCompact: { height: 245 },
+  projectGlow: { position: 'absolute', width: 360, height: 360, right: -120, top: -170, borderRadius: 180, backgroundColor: 'rgba(255,255,255,.12)' },
+  projectVisualNumber: { position: 'absolute', left: 25, top: 22, color: 'rgba(255,255,255,.75)', fontFamily: headingFont, fontSize: 12, fontWeight: '800', letterSpacing: 1.5 },
+  projectExternalArrow: { position: 'absolute', right: 25, top: 16, color: COLORS.white, fontFamily: bodyFont, fontSize: 25, fontWeight: '700' },
+  projectMockup: { width: '78%', height: '72%', borderRadius: 14, backgroundColor: '#F7F8FA', overflow: 'hidden', transform: [{ rotate: '-4deg' }, { translateY: 10 }], ...Platform.select({ web: { boxShadow: '0 28px 48px rgba(0,0,0,.25)' }, default: { elevation: 9 } }) },
+  projectMockupTopbar: { height: 26, paddingHorizontal: 10, backgroundColor: '#FFFFFF', borderBottomWidth: 1, borderBottomColor: '#E9EBF0', flexDirection: 'row', alignItems: 'center' },
+  projectMockupDots: { flexDirection: 'row', gap: 4 },
+  projectMockupDot: { width: 5, height: 5, borderRadius: 3, backgroundColor: '#CDD1DA' },
+  projectMockupBody: { flex: 1, flexDirection: 'row' },
+  projectMockupRail: { width: '18%', backgroundColor: '#111217' },
+  projectMockupContent: { flex: 1, padding: 17 },
+  projectMockupTitle: { width: '52%', height: 12, borderRadius: 6, backgroundColor: '#202127' },
+  projectMockupLine: { width: '78%', height: 6, marginTop: 10, borderRadius: 3, backgroundColor: '#D9DCE3' },
+  projectMockupTiles: { flex: 1, marginTop: 18, flexDirection: 'row', gap: 9 },
+  projectMockupTile: { flex: 1, borderRadius: 9, backgroundColor: '#E5E8EE' },
+  projectMockupTileFeatured: { backgroundColor: '#B9C9FF' },
+  projectCardContent: { minHeight: 255, padding: 28 },
+  projectMeta: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  projectType: { color: COLORS.blue, fontFamily: bodyFont, fontSize: 9, fontWeight: '800', letterSpacing: 1.2 },
+  projectYear: { color: '#9A9EA8', fontFamily: bodyFont, fontSize: 10, fontWeight: '700' },
+  projectTitle: { marginTop: 26, color: COLORS.ink, fontFamily: headingFont, fontSize: 32, lineHeight: 34, fontWeight: '900', letterSpacing: -1.5 },
+  projectBody: { maxWidth: 460, marginTop: 13, color: COLORS.muted, fontFamily: bodyFont, fontSize: 14, lineHeight: 22 },
+  projectTags: { marginTop: 'auto', paddingTop: 24, flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
+  projectTag: { paddingHorizontal: 10, paddingVertical: 6, borderWidth: 1, borderColor: '#D9DDE5', borderRadius: 14, color: COLORS.ink, fontFamily: bodyFont, fontSize: 8, fontWeight: '800', letterSpacing: 0.7 },
+  projectsCta: { minHeight: 310, alignSelf: 'center', marginBottom: 46, padding: 55, borderRadius: 30, backgroundColor: COLORS.blue, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 42, overflow: 'hidden' },
+  projectsCtaCompact: { minHeight: 440, marginBottom: 24, paddingHorizontal: 24, paddingVertical: 52, borderRadius: 0, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center' },
+  projectsCtaTitle: { maxWidth: 650, marginTop: 14, color: COLORS.white, fontFamily: headingFont, fontSize: 54, lineHeight: 54, fontWeight: '900', letterSpacing: -2.8 },
+  projectsCtaTitleCompact: { fontSize: 42, lineHeight: 42, letterSpacing: -2.2 },
   footer: { minHeight: 185, alignSelf: 'center', paddingVertical: 42, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 20 },
   footerCompact: { flexDirection: 'column', justifyContent: 'center' },
   footerText: { color: COLORS.muted, fontFamily: bodyFont, fontSize: 12 },
