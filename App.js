@@ -41,6 +41,11 @@ const bodyFont = Platform.select({
 const TRANSLATIONS = {
   el: {
     nav: [['Υπηρεσίες', 'services'], ['Η δουλειά μας', 'work'], ['Διαδικασία', 'process']],
+    workMenuLabel: 'ΕΞΕΡΕΥΝΗΣΕ',
+    workNavSection: 'Ο τρόπος μας',
+    workNavDescription: 'Πώς σκεφτόμαστε και χτίζουμε.',
+    projectsNav: 'Τα projects μας',
+    projectsNavDescription: 'Δες επιλεγμένες δουλειές μας.',
     talk: 'Ας μιλήσουμε',
     contactNav: 'Επικοινωνία',
     openMenu: 'Άνοιγμα μενού',
@@ -112,6 +117,11 @@ const TRANSLATIONS = {
   },
   en: {
     nav: [['Services', 'services'], ['Our work', 'work'], ['Process', 'process']],
+    workMenuLabel: 'EXPLORE',
+    workNavSection: 'Our approach',
+    workNavDescription: 'How we think and build.',
+    projectsNav: 'Our projects',
+    projectsNavDescription: 'See our selected work.',
     talk: 'Let’s talk',
     contactNav: 'Contact',
     openMenu: 'Open menu',
@@ -506,6 +516,7 @@ export default function App() {
   const introY = useRef(new Animated.Value(22)).current;
   const tickerX = useRef(new Animated.Value(0)).current;
   const [menuOpen, setMenuOpen] = useState(false);
+  const [workMenuOpen, setWorkMenuOpen] = useState(false);
   const [language, setLanguage] = useState('el');
   const [page, setPage] = useState(() => (
     Platform.OS === 'web' && typeof window !== 'undefined' && window.location.hash === '#projects'
@@ -551,6 +562,7 @@ export default function App() {
 
   const jumpTo = (section) => {
     setMenuOpen(false);
+    setWorkMenuOpen(false);
     const y = sectionPositions.current[section];
     if (typeof y === 'number') scrollRef.current?.scrollTo({ y: Math.max(0, y - 76), animated: true });
   };
@@ -563,6 +575,7 @@ export default function App() {
 
   const navigateToPage = (nextPage) => {
     setMenuOpen(false);
+    setWorkMenuOpen(false);
     setPage(nextPage);
     if (Platform.OS === 'web' && typeof window !== 'undefined') {
       const nextUrl = nextPage === 'projects'
@@ -600,7 +613,45 @@ export default function App() {
 
         {!compactHeader && (
           <View style={styles.desktopNav}>
-            {navItems.map(([label, target]) => (
+            {navItems.map(([label, target]) => target === 'work' ? (
+              <View key={target} style={styles.navDropdownWrap}>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ expanded: workMenuOpen }}
+                  onPress={() => setWorkMenuOpen((value) => !value)}
+                  style={[styles.navItem, workMenuOpen && styles.navItemOpen]}
+                >
+                  <Text style={[styles.navText, workMenuOpen && styles.navTextOpen]}>{label}</Text>
+                </Pressable>
+                {workMenuOpen && (
+                  <View style={styles.navDropdownMenu}>
+                    <Text style={styles.navDropdownLabel}>{t.workMenuLabel}</Text>
+                    <Pressable
+                      onPress={() => jumpTo('work')}
+                      style={({ pressed, hovered }) => [styles.navDropdownItem, (pressed || hovered) && styles.navDropdownItemActive]}
+                    >
+                      <View style={styles.navDropdownNumber}><Text style={styles.navDropdownNumberText}>01</Text></View>
+                      <View style={styles.navDropdownCopy}>
+                        <Text style={styles.navDropdownText}>{t.workNavSection}</Text>
+                        <Text style={styles.navDropdownDescription}>{t.workNavDescription}</Text>
+                      </View>
+                      <Text style={styles.navDropdownItemArrow}>→</Text>
+                    </Pressable>
+                    <Pressable
+                      onPress={() => navigateToPage('projects')}
+                      style={({ pressed, hovered }) => [styles.navDropdownItem, styles.navDropdownItemProjects, (pressed || hovered) && styles.navDropdownItemProjectsActive]}
+                    >
+                      <View style={[styles.navDropdownNumber, styles.navDropdownNumberProjects]}><Text style={[styles.navDropdownNumberText, styles.navDropdownNumberTextProjects]}>02</Text></View>
+                      <View style={styles.navDropdownCopy}>
+                        <Text style={[styles.navDropdownText, styles.navDropdownTextProjects]}>{t.projectsNav}</Text>
+                        <Text style={styles.navDropdownDescriptionProjects}>{t.projectsNavDescription}</Text>
+                      </View>
+                      <Text style={styles.navDropdownItemArrowProjects}>↗</Text>
+                    </Pressable>
+                  </View>
+                )}
+              </View>
+            ) : (
               <Pressable key={target} onPress={() => jumpTo(target)} style={styles.navItem}>
                 <Text style={styles.navText}>{label}</Text>
               </Pressable>
@@ -629,7 +680,14 @@ export default function App() {
       {compactHeader && menuOpen && (
         <View style={styles.mobileMenu}>
           {navItems.map(([label, target]) => (
-            <Pressable key={target} onPress={() => jumpTo(target)}><Text style={styles.mobileMenuText}>{label}</Text></Pressable>
+            <React.Fragment key={target}>
+              <Pressable onPress={() => jumpTo(target)}><Text style={styles.mobileMenuText}>{label}</Text></Pressable>
+              {target === 'work' && (
+                <Pressable accessibilityRole="link" onPress={() => navigateToPage('projects')} style={styles.mobileProjectsLink}>
+                  <Text style={styles.mobileProjectsText}>{t.projectsNav} ↗</Text>
+                </Pressable>
+              )}
+            </React.Fragment>
           ))}
           <Pressable accessibilityRole="link" onPress={openInstagram}><Text style={styles.mobileMenuText}>{t.contactNav} ↗</Text></Pressable>
         </View>
@@ -777,8 +835,28 @@ const styles = StyleSheet.create({
   brandText: { color: COLORS.ink, fontFamily: headingFont, fontSize: 23, fontWeight: '800', letterSpacing: -1 },
   blueText: { color: COLORS.blue },
   desktopNav: { marginLeft: 'auto', flexDirection: 'row', alignItems: 'center', gap: 12 },
-  navItem: { paddingHorizontal: 10, paddingVertical: 12 },
+  navDropdownWrap: { position: 'relative', zIndex: 60 },
+  navItem: { paddingHorizontal: 10, paddingVertical: 12, flexDirection: 'row', alignItems: 'center', gap: 6 },
+  navItemOpen: { paddingHorizontal: 15, borderRadius: 22, backgroundColor: '#E9EEFF' },
   navText: { color: COLORS.ink, fontFamily: bodyFont, fontSize: 14, fontWeight: '600' },
+  navTextOpen: { color: COLORS.blue, fontWeight: '800' },
+  navDropdownMenu: { position: 'absolute', top: 52, left: -72, width: 310, padding: 9, borderWidth: 1, borderColor: '#E2E5EC', borderRadius: 20, backgroundColor: COLORS.white, ...Platform.select({ web: { boxShadow: '0 24px 60px rgba(16,17,20,.16)' }, default: { elevation: 12 } }) },
+  navDropdownLabel: { marginHorizontal: 9, marginTop: 8, marginBottom: 7, color: '#989CA6', fontFamily: bodyFont, fontSize: 8, fontWeight: '800', letterSpacing: 1.5 },
+  navDropdownItem: { minHeight: 72, paddingHorizontal: 12, paddingVertical: 10, borderRadius: 14, flexDirection: 'row', alignItems: 'center', gap: 11, ...Platform.select({ web: { cursor: 'pointer', transitionDuration: '160ms' } }) },
+  navDropdownItemActive: { backgroundColor: '#F3F5F9' },
+  navDropdownItemProjects: { marginTop: 4, backgroundColor: COLORS.blue },
+  navDropdownItemProjectsActive: { backgroundColor: COLORS.blueDark, transform: [{ translateY: -1 }] },
+  navDropdownNumber: { width: 34, height: 34, borderRadius: 11, backgroundColor: '#EDF1FF', alignItems: 'center', justifyContent: 'center' },
+  navDropdownNumberProjects: { backgroundColor: 'rgba(255,255,255,.16)' },
+  navDropdownNumberText: { color: COLORS.blue, fontFamily: headingFont, fontSize: 9, fontWeight: '900', letterSpacing: 0.4 },
+  navDropdownNumberTextProjects: { color: COLORS.white },
+  navDropdownCopy: { flex: 1, gap: 3 },
+  navDropdownText: { color: COLORS.ink, fontFamily: bodyFont, fontSize: 13, fontWeight: '800' },
+  navDropdownDescription: { color: '#858A95', fontFamily: bodyFont, fontSize: 10, lineHeight: 14 },
+  navDropdownTextProjects: { color: COLORS.white },
+  navDropdownDescriptionProjects: { color: 'rgba(255,255,255,.7)', fontFamily: bodyFont, fontSize: 10, lineHeight: 14 },
+  navDropdownItemArrow: { color: COLORS.blue, fontFamily: bodyFont, fontSize: 18, fontWeight: '700' },
+  navDropdownItemArrowProjects: { color: COLORS.white, fontFamily: bodyFont, fontSize: 20, fontWeight: '700' },
   headerControls: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   languageToggle: { flexDirection: 'row', padding: 3, borderWidth: 1, borderColor: '#D8DCE5', borderRadius: 20, backgroundColor: COLORS.white },
   languageToggleCompact: { padding: 2 },
@@ -798,6 +876,8 @@ const styles = StyleSheet.create({
   menuLineBottom: { transform: [{ translateY: -4 }, { rotate: '-45deg' }] },
   mobileMenu: { position: 'absolute', zIndex: 20, top: 74, left: 0, right: 0, bottom: 0, paddingHorizontal: 28, paddingTop: 52, gap: 24, backgroundColor: COLORS.blue },
   mobileMenuText: { color: COLORS.white, fontFamily: headingFont, fontSize: 36, fontWeight: '800', letterSpacing: -1.5 },
+  mobileProjectsLink: { marginTop: -14, alignSelf: 'stretch', paddingHorizontal: 17, paddingVertical: 14, borderWidth: 1, borderColor: 'rgba(255,255,255,.24)', borderRadius: 16, backgroundColor: 'rgba(255,255,255,.1)' },
+  mobileProjectsText: { color: COLORS.white, fontFamily: bodyFont, fontSize: 17, fontWeight: '800' },
   hero: { minHeight: 710, alignSelf: 'center', paddingVertical: 76, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'space-between' },
   heroCompact: { minHeight: 980, paddingTop: 64, paddingBottom: 58, flexDirection: 'column', flexWrap: 'nowrap' },
   heroCopy: { zIndex: 2 },
