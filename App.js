@@ -26,6 +26,16 @@ const COLORS = {
   green: '#22C77A',
 };
 
+const OFFER_COLORS = {
+  navy: '#111936',
+  blue: '#335CFF',
+  blueDark: '#2446D8',
+  sky: '#B8CAFF',
+  ice: '#F1F5FF',
+  line: '#CBD5F0',
+  muted: '#66708D',
+};
+
 const headingFont = Platform.select({
   ios: 'Avenir Next',
   android: 'sans-serif',
@@ -46,6 +56,8 @@ const TRANSLATIONS = {
     workNavDescription: 'Πώς σκεφτόμαστε και χτίζουμε.',
     projectsNav: 'Ολοκληρωμένα projects',
     projectsNavDescription: 'Δες επιλεγμένες δουλειές μας.',
+    recommendationsNav: 'Τι σου προτείνουμε',
+    recommendationsNavDescription: 'Custom ιστοσελίδα για επαγγελματίες.',
     talk: 'Ας μιλήσουμε',
     contactNav: 'Επικοινωνία',
     openMenu: 'Άνοιγμα μενού',
@@ -144,6 +156,45 @@ const TRANSLATIONS = {
         },
       ],
     },
+    offerPage: {
+      back: 'Πίσω στην αρχική',
+      eyebrow: 'ΤΙ ΣΟΥ ΠΡΟΤΕΙΝΟΥΜΕ',
+      title: 'Custom website\nγια επαγγελματίες.',
+      intro: 'Σχεδιάζουμε και αναπτύσσουμε μια ολοκληρωμένη ψηφιακή παρουσία γύρω από το brand, το κοινό και τις πραγματικές ανάγκες σου.',
+      priceAction: 'Στείλε μήνυμα για τιμή',
+      previewLabel: 'LIVE WEBSITE PREVIEW',
+      demoBrand: 'your studio',
+      demoTagline: 'PROFESSIONAL SERVICES',
+      demoNav: ['Σχετικά', 'Υπηρεσίες', 'Η προσέγγισή μου', 'Blog'],
+      demoEyebrow: 'PERSONAL SERVICE · ONLINE SUPPORT',
+      demoTitle: ['Η παρουσία σου,', 'σχεδιασμένη για', 'να ξεχωρίζει.'],
+      demoBody: 'Μια καθαρή, επαγγελματική εμπειρία που παρουσιάζει την αξία σου και οδηγεί τον επισκέπτη στο επόμενο βήμα.',
+      demoAction: 'Κλείσε ραντεβού',
+      demoVisualLabel: 'YOUR BRAND · YOUR SERVICE',
+      demoVisualStatus: 'ONLINE & ΔΙΑ ΖΩΣΗΣ',
+      badges: ['ΔΙΓΛΩΣΣΟ', 'RESPONSIVE', 'CONTENT STUDIO'],
+      audienceLabel: 'ΙΔΑΝΙΚΟ ΓΙΑ',
+      audiences: ['ΔΙΑΙΤΟΛΟΓΟΥΣ', 'ΨΥΧΟΛΟΓΟΥΣ', 'PERSONAL TRAINERS', 'ΦΥΣΙΟΘΕΡΑΠΕΥΤΕΣ', 'MASSAGE STUDIOS', 'COACHES'],
+      valueEyebrow: 'CUSTOM DESIGN · ΓΙΑ ΤΟ ΔΙΚΟ ΣΟΥ ΕΠΑΓΓΕΛΜΑ',
+      valueTitle: 'Η δική σου ταυτότητα.\nΑπό την πρώτη γραμμή.',
+      valueBody: 'Ξεκινάμε από τους στόχους σου και σχεδιάζουμε κάθε λεπτομέρεια για το δικό σου επάγγελμα. Από τη δομή και το μήνυμα μέχρι τα χρώματα, τις λειτουργίες και το τελικό launch, το website είναι σχεδιασμένο αποκλειστικά για εσένα.',
+      features: [
+        ['01', 'Σχεδιασμένο για τον κλάδο σου', 'Η δομή και το μήνυμα προσαρμόζονται σε ψυχολόγους, trainers, διαιτολόγους, φυσιοθεραπευτές, massage studios, coaches και άλλους επαγγελματίες υπηρεσιών.'],
+        ['02', 'Custom design & development', 'Η ομάδα μας σχεδιάζει και αναπτύσσει κάθε εμπειρία γύρω από το brand, το περιεχόμενο και τις λειτουργίες που πραγματικά χρειάζεσαι.'],
+        ['03', 'Απλή διαχείριση μετά', 'Μετά το launch ενημερώνεις άρθρα, υπηρεσίες και τιμές από το δικό σου προστατευμένο content studio.'],
+      ],
+      studioEyebrow: 'ΑΠΛΗ ΔΙΑΧΕΙΡΙΣΗ ΜΕΤΑ ΤΟ LAUNCH',
+      studioTitle: 'Content studio.',
+      studioBody: 'Εμείς σχεδιάζουμε και στήνουμε ολόκληρη την εμπειρία. Εσύ μετά ενημερώνεις εύκολα μόνο το καθημερινό περιεχόμενο που γνωρίζεις καλύτερα.',
+      studioTabs: ['Άρθρα', 'Κατηγορίες', 'Υπηρεσίες & Τιμές'],
+      customizeLabel: 'CUSTOM DESIGN & DEVELOPMENT BY BUILDINBLU',
+      studioRows: [['Πώς λειτουργεί η πρώτη συνεδρία', 'Άρθρο'], ['Online προσωπική υποστήριξη', 'Υπηρεσία'], ['Νέο πρόγραμμα για αρχάριους', 'Ανακοίνωση']],
+      includedEyebrow: 'ΤΙ ΠΕΡΙΛΑΜΒΑΝΕΙ',
+      includedTitle: 'Από το brand έως το launch.',
+      included: ['Custom UX/UI design, χρώματα, λογότυπο και τυπογραφία', 'Περιεχόμενο και δομή σχεδιασμένα για το δικό σου επάγγελμα', 'Αρχική, σχετικά, υπηρεσίες, προσέγγιση και blog', 'Content studio για άρθρα, κατηγορίες, υπηρεσίες και τιμές', 'Responsive εμπειρία για κινητό, tablet και desktop', 'Βασικό SEO, domain setup και υποστήριξη στο launch'],
+      ctaEyebrow: 'ΘΕΛΕΙΣ ΝΑ ΤΟ ΔΕΙΣ ΜΕ ΤΟ ΔΙΚΟ ΣΟΥ BRAND;',
+      ctaTitle: 'Ζήτησε τιμή για τη δική σου ιστοσελίδα.',
+    },
     dashboard: { overview: 'Επισκόπηση', projects: 'PROJECTS', uptime: 'UPTIME', response: 'ΑΠΟΚΡΙΣΗ', online: 'online', performance: 'Απόδοση', range: 'Τελευταίες 30 ημέρες' },
     processEyebrow: 'ΠΩΣ ΔΟΥΛΕΥΟΥΜΕ',
     processTitle: 'Απλά. Καθαρά.',
@@ -171,6 +222,8 @@ const TRANSLATIONS = {
     workNavDescription: 'How we think and build.',
     projectsNav: 'Completed projects',
     projectsNavDescription: 'See our selected work.',
+    recommendationsNav: 'What we recommend',
+    recommendationsNavDescription: 'A custom website for professionals.',
     talk: 'Let’s talk',
     contactNav: 'Contact',
     openMenu: 'Open menu',
@@ -268,6 +321,45 @@ const TRANSLATIONS = {
           ],
         },
       ],
+    },
+    offerPage: {
+      back: 'Back to home',
+      eyebrow: 'WHAT WE RECOMMEND',
+      title: 'A custom website\nfor professionals.',
+      intro: 'We design and develop a complete digital presence around your brand, audience, and real business needs.',
+      priceAction: 'Message us for pricing',
+      previewLabel: 'LIVE WEBSITE PREVIEW',
+      demoBrand: 'your studio',
+      demoTagline: 'PROFESSIONAL SERVICES',
+      demoNav: ['About', 'Services', 'My approach', 'Blog'],
+      demoEyebrow: 'PERSONAL SERVICE · ONLINE SUPPORT',
+      demoTitle: ['Your presence,', 'designed to', 'stand apart.'],
+      demoBody: 'A clear, professional experience that communicates your value and guides visitors toward the next step.',
+      demoAction: 'Book a session',
+      demoVisualLabel: 'YOUR BRAND · YOUR SERVICE',
+      demoVisualStatus: 'ONLINE & IN PERSON',
+      badges: ['BILINGUAL', 'RESPONSIVE', 'CONTENT STUDIO'],
+      audienceLabel: 'IDEAL FOR',
+      audiences: ['DIETITIANS', 'PSYCHOLOGISTS', 'PERSONAL TRAINERS', 'PHYSIOTHERAPISTS', 'MASSAGE STUDIOS', 'COACHES'],
+      valueEyebrow: 'CUSTOM DESIGN · FOR YOUR PROFESSION',
+      valueTitle: 'Your identity.\nFrom the first line.',
+      valueBody: 'We begin with your goals and design every detail for your profession. From structure and messaging to colors, features, and the final launch, your website is designed exclusively for you.',
+      features: [
+        ['01', 'Designed for your field', 'The structure and message adapt to psychologists, trainers, dietitians, physiotherapists, massage studios, coaches, and other service professionals.'],
+        ['02', 'Custom design & development', 'Our team designs and develops every experience around the brand, content, and features you genuinely need.'],
+        ['03', 'Simple management after launch', 'Once live, update articles, services, and pricing from your own protected content studio.'],
+      ],
+      studioEyebrow: 'SIMPLE MANAGEMENT AFTER LAUNCH',
+      studioTitle: 'Content studio.',
+      studioBody: 'We design and build the full experience. Afterwards, you can easily update only the everyday content you know best.',
+      studioTabs: ['Articles', 'Categories', 'Services & Pricing'],
+      customizeLabel: 'CUSTOM DESIGN & DEVELOPMENT BY BUILDINBLU',
+      studioRows: [['How the first session works', 'Article'], ['Online personal support', 'Service'], ['New program for beginners', 'Announcement']],
+      includedEyebrow: 'WHAT IS INCLUDED',
+      includedTitle: 'From your brand to launch.',
+      included: ['Custom UX/UI design, colors, logo, and typography', 'Content and structure designed for your profession', 'Home, about, services, approach, and blog pages', 'Content studio for articles, categories, services, and pricing', 'Responsive experience across mobile, tablet, and desktop', 'Core SEO, domain setup, and launch support'],
+      ctaEyebrow: 'WANT TO SEE IT WITH YOUR OWN BRAND?',
+      ctaTitle: 'Ask for pricing for your website.',
     },
     dashboard: { overview: 'Overview', projects: 'PROJECTS', uptime: 'UPTIME', response: 'RESPONSE', online: 'online', performance: 'Performance', range: 'Last 30 days' },
     processEyebrow: 'HOW WE WORK',
@@ -752,8 +844,229 @@ function ProjectCaseStudy({ project, copy, language, onLanguageChange, onBack, o
   );
 }
 
+function OfferWebsitePreview({ copy, compact }) {
+  return (
+    <View style={[styles.offerBrowser, compact && styles.offerBrowserCompact]}>
+      <View style={styles.offerBrowserLabel}>
+        <View style={styles.liveDot} />
+        <Text style={styles.offerBrowserLabelText}>{copy.previewLabel}</Text>
+      </View>
+      <View style={styles.offerBrowserTopbar}>
+        <View style={styles.offerDemoBrand}>
+          <View style={styles.offerDemoMark}><Text style={styles.offerDemoMarkText}>N</Text></View>
+          <View>
+            <Text style={styles.offerDemoBrandText}>{copy.demoBrand}</Text>
+            <Text style={styles.offerDemoTagline}>{copy.demoTagline}</Text>
+          </View>
+        </View>
+        {!compact && (
+          <View style={styles.offerDemoNav}>
+            {copy.demoNav.map((item) => <Text key={item} style={styles.offerDemoNavText}>{item}</Text>)}
+          </View>
+        )}
+        <View style={styles.offerDemoLanguage}><Text style={styles.offerDemoLanguageText}>GR / EN</Text></View>
+      </View>
+      <View style={[styles.offerBrowserBody, compact && styles.offerBrowserBodyCompact]}>
+        <View style={[styles.offerDemoCopy, compact && styles.offerDemoCopyCompact]}>
+          <Text style={styles.offerDemoEyebrow}>{copy.demoEyebrow}</Text>
+          <Text style={[styles.offerDemoTitle, compact && styles.offerDemoTitleCompact]}>
+            {copy.demoTitle[0]}{'\n'}{copy.demoTitle[1]}{'\n'}
+            <Text style={styles.offerAccent}>{copy.demoTitle[2]}</Text>
+          </Text>
+          <Text style={styles.offerDemoBody}>{copy.demoBody}</Text>
+          <View style={styles.offerDemoButton}><Text style={styles.offerDemoButtonText}>{copy.demoAction}</Text></View>
+        </View>
+        <View
+          style={[styles.offerDemoVisual, compact && styles.offerDemoVisualCompact]}
+          accessibilityLabel={copy.demoVisualLabel}
+        >
+          <View style={styles.offerDemoVisualOrbOne} />
+          <View style={styles.offerDemoVisualOrbTwo} />
+          <Text style={styles.offerDemoVisualLabel}>{copy.demoVisualLabel}</Text>
+          <View style={styles.offerDemoProfileCard}>
+            <View style={styles.offerDemoAvatar}><Text style={styles.offerDemoAvatarText}>Y</Text></View>
+            <View style={styles.offerDemoProfileCopy}>
+              <View style={styles.offerDemoProfileTitle} />
+              <View style={styles.offerDemoProfileLine} />
+            </View>
+          </View>
+          <View style={styles.offerDemoServiceGrid}>
+            {[1, 2].map((item) => (
+              <View key={item} style={styles.offerDemoServiceCard}>
+                <Text style={styles.offerDemoServiceNumber}>0{item}</Text>
+                <View style={styles.offerDemoServiceLine} />
+                <Text style={styles.offerDemoServiceArrow}>↗</Text>
+              </View>
+            ))}
+          </View>
+          <View style={styles.offerDemoStatusBadge}>
+            <View style={styles.statusDot} />
+            <Text style={styles.offerDemoStatusText}>{copy.demoVisualStatus}</Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+function OfferStudioPreview({ copy, compact }) {
+  return (
+    <View style={[styles.offerStudioWindow, compact && styles.offerStudioWindowCompact]}>
+      <View style={styles.offerStudioTopbar}>
+        <Text style={styles.offerStudioLogo}>{copy.demoBrand} <Text style={styles.offerAccent}>admin</Text></Text>
+        <Text style={styles.offerStudioWebsite}>Website ↗</Text>
+      </View>
+      <View style={styles.offerStudioContent}>
+        <Text style={styles.offerStudioPrivate}>PRIVATE WORKSPACE</Text>
+        <Text style={[styles.offerStudioHeading, compact && styles.offerStudioHeadingCompact]}>{copy.studioTitle}</Text>
+        <Text style={styles.offerStudioIntro}>{copy.studioBody}</Text>
+        <View style={styles.offerStudioBrandBar}>
+          <Text style={styles.offerStudioBrandLabel}>{copy.customizeLabel}</Text>
+          <View style={styles.offerStudioSwatches}>
+            <View style={[styles.offerStudioSwatch, { backgroundColor: OFFER_COLORS.navy }]} />
+            <View style={[styles.offerStudioSwatch, { backgroundColor: OFFER_COLORS.blue }]} />
+            <View style={[styles.offerStudioSwatch, { backgroundColor: OFFER_COLORS.sky }]} />
+            <View style={[styles.offerStudioSwatch, { backgroundColor: COLORS.white }]} />
+          </View>
+        </View>
+        <View style={styles.offerStudioTabs}>
+          {copy.studioTabs.map((tab, index) => (
+            <View key={tab} style={[styles.offerStudioTab, index === 0 && styles.offerStudioTabActive]}>
+              <Text style={[styles.offerStudioTabText, index === 0 && styles.offerStudioTabTextActive]}>{tab}</Text>
+            </View>
+          ))}
+        </View>
+        <View style={styles.offerStudioTable}>
+          <View style={styles.offerStudioTableHeader}>
+            <Text style={styles.offerStudioTableTitle}>{copy.studioTabs[0]}</Text>
+            <View style={styles.offerStudioAdd}><Text style={styles.offerStudioAddText}>+ New</Text></View>
+          </View>
+          {copy.studioRows.map(([title, type]) => (
+            <View key={title} style={styles.offerStudioRow}>
+              <View>
+                <Text style={styles.offerStudioRowTitle}>{title}</Text>
+                <Text style={styles.offerStudioRowType}>{type}</Text>
+              </View>
+              <Text style={styles.offerStudioEdit}>Edit →</Text>
+            </View>
+          ))}
+        </View>
+      </View>
+    </View>
+  );
+}
+
+function ProfessionalOfferPage({ copy, language, onLanguageChange, onBack, compact, shellWidth, viewportWidth, openInstagram, footer, rights }) {
+  return (
+    <SafeAreaView style={styles.safeArea} accessibilityLanguage={language === 'el' ? 'el-GR' : 'en-US'}>
+      <StatusBar barStyle="dark-content" backgroundColor={COLORS.paper} />
+      <View style={[styles.header, { paddingHorizontal: Math.max(16, (viewportWidth - 1180) / 2) }]}>
+        <Pressable onPress={onBack} accessibilityRole="button" accessibilityLabel={copy.back}>
+          <Brand compact={compact} />
+        </Pressable>
+        <View style={styles.headerControls}>
+          <LanguageToggle language={language} onChange={onLanguageChange} compact={compact} />
+          <Pressable onPress={onBack} accessibilityRole="link" style={styles.projectsBackButton}>
+            <Text style={styles.projectsBackText}>← {copy.back}</Text>
+          </Pressable>
+        </View>
+      </View>
+
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.projectsScroll} showsVerticalScrollIndicator={false}>
+        <View style={[styles.offerHero, { width: shellWidth }, compact && styles.offerHeroCompact]}>
+          <Eyebrow>{copy.eyebrow}</Eyebrow>
+          <View style={[styles.offerHeroHeadingRow, compact && styles.offerHeroHeadingStack]}>
+            <Text style={[styles.offerHeroTitle, compact && styles.offerHeroTitleCompact]}>{copy.title}</Text>
+            <View style={styles.offerHeroIntro}>
+              <Text style={styles.offerHeroBody}>{copy.intro}</Text>
+              <ActionButton onPress={openInstagram}>{copy.priceAction}</ActionButton>
+            </View>
+          </View>
+          <View style={styles.offerBadges}>
+            {copy.badges.map((badge) => <Text key={badge} style={styles.offerBadge}>{badge}</Text>)}
+          </View>
+          <View style={styles.offerAudienceRow}>
+            <Text style={styles.offerAudienceLabel}>{copy.audienceLabel}</Text>
+            <View style={styles.offerAudienceList}>
+              {copy.audiences.map((audience) => <Text key={audience} style={styles.offerAudienceItem}>{audience}</Text>)}
+            </View>
+          </View>
+        </View>
+
+        <View style={[styles.offerPreviewWrap, { width: shellWidth }]}>
+          <OfferWebsitePreview copy={copy} compact={compact} />
+        </View>
+
+        <View style={[styles.offerValue, { width: shellWidth }]}>
+          <Eyebrow>{copy.valueEyebrow}</Eyebrow>
+          <View style={[styles.offerValueHeadingRow, compact && styles.offerValueHeadingStack]}>
+            <Text style={[styles.offerValueTitle, compact && styles.offerValueTitleCompact]}>{copy.valueTitle}</Text>
+            <Text style={styles.offerValueBody}>{copy.valueBody}</Text>
+          </View>
+          <View style={[styles.offerFeatureGrid, compact && styles.offerFeatureGridCompact]}>
+            {copy.features.map(([number, title, body]) => (
+              <View key={number} style={styles.offerFeatureCard}>
+                <Text style={styles.offerFeatureNumber}>{number}</Text>
+                <Text style={styles.offerFeatureTitle}>{title}</Text>
+                <Text style={styles.offerFeatureBody}>{body}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        <View style={styles.offerStudioSection}>
+          <View style={[styles.offerStudioInner, { width: shellWidth }]}>
+            <Eyebrow light>{copy.studioEyebrow}</Eyebrow>
+            <View style={[styles.offerStudioHeadingRow, compact && styles.offerStudioHeadingStack]}>
+              <Text style={[styles.offerStudioSectionTitle, compact && styles.offerStudioSectionTitleCompact]}>{copy.studioTitle}</Text>
+              <Text style={styles.offerStudioSectionBody}>{copy.studioBody}</Text>
+            </View>
+            <OfferStudioPreview copy={copy} compact={compact} />
+          </View>
+        </View>
+
+        <View style={[styles.offerIncluded, { width: shellWidth }, compact && styles.offerIncludedStack]}>
+          <View style={styles.offerIncludedHeading}>
+            <Eyebrow>{copy.includedEyebrow}</Eyebrow>
+            <Text style={[styles.offerIncludedTitle, compact && styles.offerIncludedTitleCompact]}>{copy.includedTitle}</Text>
+          </View>
+          <View style={styles.offerIncludedList}>
+            {copy.included.map((item, index) => (
+              <View key={item} style={styles.offerIncludedRow}>
+                <Text style={styles.offerIncludedNumber}>{String(index + 1).padStart(2, '0')}</Text>
+                <Text style={styles.offerIncludedText}>{item}</Text>
+                <Text style={styles.offerIncludedCheck}>✓</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        <View style={[styles.projectsCta, { width: compact ? '100%' : shellWidth }, compact && styles.projectsCtaCompact]}>
+          <View>
+            <Eyebrow light>{copy.ctaEyebrow}</Eyebrow>
+            <Text style={[styles.projectsCtaTitle, compact && styles.projectsCtaTitleCompact]}>{copy.ctaTitle}</Text>
+          </View>
+          <ActionButton light onPress={openInstagram}>{copy.priceAction}</ActionButton>
+        </View>
+
+        <View style={[styles.footer, { width: shellWidth }, compact && styles.footerCompact]}>
+          <Pressable onPress={onBack} accessibilityRole="button"><Brand /></Pressable>
+          <Text style={styles.footerText}>{footer}</Text>
+          <View style={styles.footerLinks}>
+            <Pressable onPress={openInstagram}><Text style={styles.footerLink}>Instagram</Text></Pressable>
+          </View>
+          <Text style={styles.copyright}>© {new Date().getFullYear()} BuildInBlu. {rights}</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
 function getRouteFromLocation() {
   if (Platform.OS !== 'web' || typeof window === 'undefined') return { page: 'home', projectSlug: null };
+  if (['#solutions/professional-website', '#solutions/dietitian-website'].includes(window.location.hash)) {
+    return { page: 'professionalOffer', projectSlug: null };
+  }
   const projectMatch = window.location.hash.match(/^#projects\/([^/?#]+)/);
   if (projectMatch) return { page: 'project', projectSlug: decodeURIComponent(projectMatch[1]) };
   if (window.location.hash === '#projects') return { page: 'projects', projectSlug: null };
@@ -811,10 +1124,12 @@ export default function App() {
     if (Platform.OS !== 'web' || typeof document === 'undefined') return;
     document.title = activeProject
       ? `${activeProject.title} — BuildInBlu`
+      : page === 'professionalOffer'
+        ? `${t.offerPage.title.replace('\n', ' ')} — BuildInBlu`
       : page === 'projects'
         ? `${t.projectsNav} — BuildInBlu`
         : 'BuildInBlu — Software & Cloud';
-  }, [activeProject, page, t.projectsNav]);
+  }, [activeProject, page, t.offerPage.title, t.projectsNav]);
 
   const navItems = useMemo(() => t.nav, [t]);
 
@@ -838,12 +1153,30 @@ export default function App() {
     if (Platform.OS === 'web' && typeof window !== 'undefined') {
       const hash = nextPage === 'project' && projectSlug
         ? `#projects/${encodeURIComponent(projectSlug)}`
+        : nextPage === 'professionalOffer' ? '#solutions/professional-website'
         : nextPage === 'projects' ? '#projects' : '';
       const nextUrl = `${window.location.pathname}${window.location.search}${hash}`;
       window.history.pushState({}, '', nextUrl);
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }
   };
+
+  if (page === 'professionalOffer') {
+    return (
+      <ProfessionalOfferPage
+        copy={t.offerPage}
+        language={language}
+        onLanguageChange={setLanguage}
+        onBack={() => navigateToPage('home')}
+        compact={compact}
+        shellWidth={shellWidth}
+        viewportWidth={width}
+        openInstagram={openInstagram}
+        footer={t.footer}
+        rights={t.rights}
+      />
+    );
+  }
 
   if (page === 'project' && activeProject) {
     return (
@@ -927,6 +1260,17 @@ export default function App() {
                       </View>
                       <Text style={styles.navDropdownItemArrowProjects}>↗</Text>
                     </Pressable>
+                    <Pressable
+                      onPress={() => navigateToPage('professionalOffer')}
+                      style={({ pressed, hovered }) => [styles.navDropdownItem, styles.navDropdownItemOffer, (pressed || hovered) && styles.navDropdownItemOfferActive]}
+                    >
+                      <View style={[styles.navDropdownNumber, styles.navDropdownNumberOffer]}><Text style={[styles.navDropdownNumberText, styles.navDropdownNumberTextOffer]}>03</Text></View>
+                      <View style={styles.navDropdownCopy}>
+                        <Text style={[styles.navDropdownText, styles.navDropdownTextOffer]}>{t.recommendationsNav}</Text>
+                        <Text style={styles.navDropdownDescriptionOffer}>{t.recommendationsNavDescription}</Text>
+                      </View>
+                      <Text style={styles.navDropdownItemArrowOffer}>↗</Text>
+                    </Pressable>
                   </View>
                 )}
               </View>
@@ -957,19 +1301,25 @@ export default function App() {
       </View>
 
       {compactHeader && menuOpen && (
-        <View style={styles.mobileMenu}>
+        <ScrollView style={styles.mobileMenu} contentContainerStyle={styles.mobileMenuContent} showsVerticalScrollIndicator={false}>
           {navItems.map(([label, target]) => (
             <React.Fragment key={target}>
               <Pressable onPress={() => jumpTo(target)}><Text style={styles.mobileMenuText}>{label}</Text></Pressable>
               {target === 'work' && (
-                <Pressable accessibilityRole="link" onPress={() => navigateToPage('projects')} style={styles.mobileProjectsLink}>
-                  <Text style={styles.mobileProjectsText}>{t.projectsNav} ↗</Text>
-                </Pressable>
+                <View style={styles.mobileSubmenu}>
+                  <Pressable accessibilityRole="link" onPress={() => navigateToPage('projects')} style={styles.mobileProjectsLink}>
+                    <Text style={styles.mobileProjectsText}>{t.projectsNav} ↗</Text>
+                  </Pressable>
+                  <Pressable accessibilityRole="link" onPress={() => navigateToPage('professionalOffer')} style={[styles.mobileProjectsLink, styles.mobileOfferLink]}>
+                    <Text style={styles.mobileProjectsText}>{t.recommendationsNav} ↗</Text>
+                    <Text style={styles.mobileOfferDescription}>{t.recommendationsNavDescription}</Text>
+                  </Pressable>
+                </View>
               )}
             </React.Fragment>
           ))}
           <Pressable accessibilityRole="link" onPress={openInstagram}><Text style={styles.mobileMenuText}>{t.contactNav} ↗</Text></Pressable>
-        </View>
+        </ScrollView>
       )}
 
       <ScrollView
@@ -1125,17 +1475,24 @@ const styles = StyleSheet.create({
   navDropdownItemActive: { backgroundColor: '#F3F5F9' },
   navDropdownItemProjects: { marginTop: 4, backgroundColor: COLORS.blue },
   navDropdownItemProjectsActive: { backgroundColor: COLORS.blueDark, transform: [{ translateY: -1 }] },
+  navDropdownItemOffer: { marginTop: 4, backgroundColor: OFFER_COLORS.navy },
+  navDropdownItemOfferActive: { backgroundColor: OFFER_COLORS.blueDark, transform: [{ translateY: -1 }] },
   navDropdownNumber: { width: 34, height: 34, borderRadius: 11, backgroundColor: '#EDF1FF', alignItems: 'center', justifyContent: 'center' },
   navDropdownNumberProjects: { backgroundColor: 'rgba(255,255,255,.16)' },
+  navDropdownNumberOffer: { backgroundColor: 'rgba(255,255,255,.16)' },
   navDropdownNumberText: { color: COLORS.blue, fontFamily: headingFont, fontSize: 9, fontWeight: '900', letterSpacing: 0.4 },
   navDropdownNumberTextProjects: { color: COLORS.white },
+  navDropdownNumberTextOffer: { color: COLORS.white },
   navDropdownCopy: { flex: 1, gap: 3 },
   navDropdownText: { color: COLORS.ink, fontFamily: bodyFont, fontSize: 13, fontWeight: '800' },
   navDropdownDescription: { color: '#858A95', fontFamily: bodyFont, fontSize: 10, lineHeight: 14 },
   navDropdownTextProjects: { color: COLORS.white },
   navDropdownDescriptionProjects: { color: 'rgba(255,255,255,.7)', fontFamily: bodyFont, fontSize: 10, lineHeight: 14 },
+  navDropdownTextOffer: { color: COLORS.white },
+  navDropdownDescriptionOffer: { color: 'rgba(255,255,255,.72)', fontFamily: bodyFont, fontSize: 10, lineHeight: 14 },
   navDropdownItemArrow: { color: COLORS.blue, fontFamily: bodyFont, fontSize: 18, fontWeight: '700' },
   navDropdownItemArrowProjects: { color: COLORS.white, fontFamily: bodyFont, fontSize: 20, fontWeight: '700' },
+  navDropdownItemArrowOffer: { color: COLORS.white, fontFamily: bodyFont, fontSize: 20, fontWeight: '700' },
   headerControls: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   languageToggle: { flexDirection: 'row', padding: 3, borderWidth: 1, borderColor: '#D8DCE5', borderRadius: 20, backgroundColor: COLORS.white },
   languageToggleCompact: { padding: 2 },
@@ -1153,10 +1510,14 @@ const styles = StyleSheet.create({
   menuLine: { width: 18, height: 2, borderRadius: 2, backgroundColor: COLORS.white },
   menuLineTop: { transform: [{ translateY: 4 }, { rotate: '45deg' }] },
   menuLineBottom: { transform: [{ translateY: -4 }, { rotate: '-45deg' }] },
-  mobileMenu: { position: 'absolute', zIndex: 20, top: 74, left: 0, right: 0, bottom: 0, paddingHorizontal: 28, paddingTop: 52, gap: 24, backgroundColor: COLORS.blue },
+  mobileMenu: { position: 'absolute', zIndex: 20, top: 74, left: 0, right: 0, bottom: 0, backgroundColor: COLORS.blue },
+  mobileMenuContent: { paddingHorizontal: 28, paddingTop: 52, paddingBottom: 48, gap: 24 },
   mobileMenuText: { color: COLORS.white, fontFamily: headingFont, fontSize: 36, fontWeight: '800', letterSpacing: -1.5 },
-  mobileProjectsLink: { marginTop: -14, alignSelf: 'stretch', paddingHorizontal: 17, paddingVertical: 14, borderWidth: 1, borderColor: 'rgba(255,255,255,.24)', borderRadius: 16, backgroundColor: 'rgba(255,255,255,.1)' },
+  mobileSubmenu: { marginTop: -14, gap: 8 },
+  mobileProjectsLink: { alignSelf: 'stretch', paddingHorizontal: 17, paddingVertical: 14, borderWidth: 1, borderColor: 'rgba(255,255,255,.24)', borderRadius: 16, backgroundColor: 'rgba(255,255,255,.1)' },
   mobileProjectsText: { color: COLORS.white, fontFamily: bodyFont, fontSize: 17, fontWeight: '800' },
+  mobileOfferLink: { marginTop: 0, backgroundColor: OFFER_COLORS.navy },
+  mobileOfferDescription: { marginTop: 5, color: 'rgba(255,255,255,.72)', fontFamily: bodyFont, fontSize: 11, lineHeight: 16 },
   hero: { minHeight: 710, alignSelf: 'center', paddingVertical: 76, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'space-between' },
   heroCompact: { minHeight: 980, paddingTop: 64, paddingBottom: 58, flexDirection: 'column', flexWrap: 'nowrap' },
   heroCopy: { zIndex: 2 },
@@ -1374,6 +1735,121 @@ const styles = StyleSheet.create({
   caseNextTitle: { maxWidth: '85%', marginTop: 18, color: COLORS.white, fontFamily: headingFont, fontSize: 58, lineHeight: 59, fontWeight: '900', letterSpacing: -3 },
   caseNextTitleCompact: { fontSize: 40, lineHeight: 42, letterSpacing: -2.1 },
   caseNextArrow: { position: 'absolute', right: 52, color: COLORS.white, fontFamily: bodyFont, fontSize: 46, fontWeight: '700' },
+  offerHero: { alignSelf: 'center', paddingTop: 105, paddingBottom: 62 },
+  offerHeroCompact: { paddingTop: 72, paddingBottom: 44 },
+  offerHeroHeadingRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', gap: 64 },
+  offerHeroHeadingStack: { flexDirection: 'column', alignItems: 'flex-start', gap: 30 },
+  offerHeroTitle: { flex: 1.25, color: COLORS.ink, fontFamily: headingFont, fontSize: 72, lineHeight: 70, fontWeight: '900', letterSpacing: -4 },
+  offerHeroTitleCompact: { flex: 0, fontSize: 48, lineHeight: 48, letterSpacing: -2.7 },
+  offerHeroIntro: { flex: 0.75, maxWidth: 450, alignItems: 'flex-start', gap: 28 },
+  offerHeroBody: { color: COLORS.muted, fontFamily: bodyFont, fontSize: 16, lineHeight: 27 },
+  offerBadges: { marginTop: 52, paddingTop: 24, borderTopWidth: 1, borderTopColor: COLORS.line, flexDirection: 'row', flexWrap: 'wrap', gap: 9 },
+  offerBadge: { paddingHorizontal: 12, paddingVertical: 7, borderWidth: 1, borderColor: '#D3D7E0', borderRadius: 16, color: COLORS.ink, fontFamily: bodyFont, fontSize: 8, fontWeight: '800', letterSpacing: 1 },
+  offerAudienceRow: { marginTop: 18, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 14 },
+  offerAudienceLabel: { color: OFFER_COLORS.blue, fontFamily: bodyFont, fontSize: 8, fontWeight: '900', letterSpacing: 1.3 },
+  offerAudienceList: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
+  offerAudienceItem: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 14, backgroundColor: OFFER_COLORS.ice, color: OFFER_COLORS.navy, fontFamily: bodyFont, fontSize: 8, fontWeight: '800', letterSpacing: 0.5 },
+  offerPreviewWrap: { alignSelf: 'center', paddingBottom: 130 },
+  offerBrowser: { height: 650, borderWidth: 1, borderColor: OFFER_COLORS.line, borderRadius: 28, backgroundColor: OFFER_COLORS.ice, ...Platform.select({ web: { boxShadow: '0 30px 80px rgba(29,86,243,.15)' }, default: { elevation: 8 } }) },
+  offerBrowserCompact: { height: 760, borderRadius: 22 },
+  offerBrowserLabel: { position: 'absolute', zIndex: 5, top: -16, left: 28, paddingHorizontal: 13, paddingVertical: 9, borderRadius: 16, backgroundColor: COLORS.white, flexDirection: 'row', alignItems: 'center', gap: 8, ...Platform.select({ web: { boxShadow: '0 8px 22px rgba(16,17,20,.12)' }, default: { elevation: 6 } }) },
+  offerBrowserLabelText: { color: COLORS.ink, fontFamily: bodyFont, fontSize: 8, fontWeight: '900', letterSpacing: 1 },
+  offerBrowserTopbar: { height: 88, paddingHorizontal: 34, borderBottomWidth: 1, borderBottomColor: OFFER_COLORS.line, backgroundColor: COLORS.white, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 20 },
+  offerDemoBrand: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  offerDemoMark: { width: 43, height: 43, borderWidth: 1, borderColor: OFFER_COLORS.blue, borderRadius: 22, backgroundColor: OFFER_COLORS.ice, alignItems: 'center', justifyContent: 'center' },
+  offerDemoMarkText: { color: OFFER_COLORS.blue, fontFamily: 'serif', fontSize: 22, fontStyle: 'italic' },
+  offerDemoBrandText: { color: OFFER_COLORS.navy, fontFamily: 'serif', fontSize: 18, fontWeight: '600' },
+  offerDemoTagline: { marginTop: 3, color: OFFER_COLORS.blue, fontFamily: bodyFont, fontSize: 7, fontWeight: '800', letterSpacing: 2 },
+  offerDemoNav: { flexDirection: 'row', alignItems: 'center', gap: 25 },
+  offerDemoNavText: { color: OFFER_COLORS.navy, fontFamily: bodyFont, fontSize: 11, fontWeight: '600' },
+  offerDemoLanguage: { paddingHorizontal: 12, paddingVertical: 9, borderWidth: 1, borderColor: OFFER_COLORS.line, borderRadius: 18 },
+  offerDemoLanguageText: { color: OFFER_COLORS.navy, fontFamily: bodyFont, fontSize: 9, fontWeight: '800' },
+  offerBrowserBody: { flex: 1, borderBottomLeftRadius: 28, borderBottomRightRadius: 28, flexDirection: 'row', overflow: 'hidden' },
+  offerBrowserBodyCompact: { borderBottomLeftRadius: 22, borderBottomRightRadius: 22, flexDirection: 'column' },
+  offerDemoCopy: { width: '50%', paddingHorizontal: 58, paddingVertical: 66, justifyContent: 'center' },
+  offerDemoCopyCompact: { width: '100%', flex: 1.05, paddingHorizontal: 26, paddingVertical: 34 },
+  offerDemoEyebrow: { color: OFFER_COLORS.blue, fontFamily: bodyFont, fontSize: 8, fontWeight: '900', letterSpacing: 1.8 },
+  offerDemoTitle: { marginTop: 30, color: OFFER_COLORS.navy, fontFamily: 'serif', fontSize: 54, lineHeight: 53, letterSpacing: -2 },
+  offerDemoTitleCompact: { marginTop: 22, fontSize: 37, lineHeight: 37, letterSpacing: -1.4 },
+  offerAccent: { color: OFFER_COLORS.blue, fontStyle: 'italic' },
+  offerDemoBody: { maxWidth: 420, marginTop: 30, color: '#666158', fontFamily: bodyFont, fontSize: 13, lineHeight: 22 },
+  offerDemoButton: { alignSelf: 'flex-start', marginTop: 28, paddingHorizontal: 19, paddingVertical: 13, borderRadius: 23, backgroundColor: OFFER_COLORS.navy },
+  offerDemoButtonText: { color: COLORS.white, fontFamily: bodyFont, fontSize: 10, fontWeight: '800' },
+  offerDemoVisual: { position: 'relative', width: '50%', height: '100%', padding: 42, backgroundColor: OFFER_COLORS.blue, justifyContent: 'center', overflow: 'hidden' },
+  offerDemoVisualCompact: { width: '100%', flex: 0.95, height: 'auto', padding: 24 },
+  offerDemoVisualOrbOne: { position: 'absolute', width: 390, height: 390, right: -150, top: -180, borderRadius: 195, backgroundColor: 'rgba(255,255,255,.12)' },
+  offerDemoVisualOrbTwo: { position: 'absolute', width: 250, height: 250, left: -105, bottom: -120, borderWidth: 1, borderColor: 'rgba(255,255,255,.25)', borderRadius: 125 },
+  offerDemoVisualLabel: { color: OFFER_COLORS.sky, fontFamily: bodyFont, fontSize: 8, fontWeight: '900', letterSpacing: 1.7 },
+  offerDemoProfileCard: { marginTop: 22, padding: 18, borderWidth: 1, borderColor: 'rgba(255,255,255,.22)', borderRadius: 18, backgroundColor: 'rgba(17,25,54,.34)', flexDirection: 'row', alignItems: 'center', gap: 14 },
+  offerDemoAvatar: { width: 54, height: 54, borderRadius: 27, backgroundColor: COLORS.white, alignItems: 'center', justifyContent: 'center' },
+  offerDemoAvatarText: { color: OFFER_COLORS.blue, fontFamily: 'serif', fontSize: 26, fontStyle: 'italic' },
+  offerDemoProfileCopy: { flex: 1, gap: 9 },
+  offerDemoProfileTitle: { width: '58%', height: 9, borderRadius: 5, backgroundColor: COLORS.white },
+  offerDemoProfileLine: { width: '84%', height: 6, borderRadius: 3, backgroundColor: 'rgba(255,255,255,.38)' },
+  offerDemoServiceGrid: { marginTop: 13, flexDirection: 'row', gap: 12 },
+  offerDemoServiceCard: { flex: 1, minHeight: 135, padding: 16, borderRadius: 17, backgroundColor: COLORS.white },
+  offerDemoServiceNumber: { color: OFFER_COLORS.blue, fontFamily: headingFont, fontSize: 9, fontWeight: '900' },
+  offerDemoServiceLine: { width: '72%', height: 8, marginTop: 39, borderRadius: 4, backgroundColor: OFFER_COLORS.navy },
+  offerDemoServiceArrow: { position: 'absolute', right: 14, bottom: 11, color: OFFER_COLORS.blue, fontSize: 18, fontWeight: '800' },
+  offerDemoStatusBadge: { alignSelf: 'flex-end', marginTop: 14, paddingHorizontal: 13, paddingVertical: 9, borderRadius: 16, backgroundColor: COLORS.white, flexDirection: 'row', alignItems: 'center', gap: 8 },
+  offerDemoStatusText: { color: OFFER_COLORS.navy, fontFamily: bodyFont, fontSize: 7, fontWeight: '900', letterSpacing: 0.8 },
+  offerValue: { alignSelf: 'center', paddingBottom: 132 },
+  offerValueHeadingRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', gap: 60 },
+  offerValueHeadingStack: { flexDirection: 'column', alignItems: 'flex-start', gap: 26 },
+  offerValueTitle: { flex: 1.2, color: COLORS.ink, fontFamily: headingFont, fontSize: 58, lineHeight: 57, fontWeight: '900', letterSpacing: -3.2 },
+  offerValueTitleCompact: { flex: 0, fontSize: 43, lineHeight: 43, letterSpacing: -2.4 },
+  offerValueBody: { flex: 0.8, maxWidth: 440, color: COLORS.muted, fontFamily: bodyFont, fontSize: 15, lineHeight: 26 },
+  offerFeatureGrid: { marginTop: 58, flexDirection: 'row', gap: 15 },
+  offerFeatureGridCompact: { flexDirection: 'column' },
+  offerFeatureCard: { flex: 1, minHeight: 300, padding: 29, borderWidth: 1, borderColor: COLORS.line, borderRadius: 24, backgroundColor: COLORS.white },
+  offerFeatureNumber: { color: OFFER_COLORS.blue, fontFamily: headingFont, fontSize: 10, fontWeight: '900', letterSpacing: 1 },
+  offerFeatureTitle: { marginTop: 62, color: COLORS.ink, fontFamily: headingFont, fontSize: 25, lineHeight: 27, fontWeight: '900', letterSpacing: -1 },
+  offerFeatureBody: { marginTop: 14, color: COLORS.muted, fontFamily: bodyFont, fontSize: 13, lineHeight: 21 },
+  offerStudioSection: { paddingVertical: 124, backgroundColor: COLORS.ink },
+  offerStudioInner: { alignSelf: 'center' },
+  offerStudioHeadingRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', gap: 60 },
+  offerStudioHeadingStack: { flexDirection: 'column', alignItems: 'flex-start', gap: 24 },
+  offerStudioSectionTitle: { color: COLORS.white, fontFamily: headingFont, fontSize: 59, lineHeight: 58, fontWeight: '900', letterSpacing: -3.2 },
+  offerStudioSectionTitleCompact: { fontSize: 44, lineHeight: 45, letterSpacing: -2.3 },
+  offerStudioSectionBody: { maxWidth: 440, color: '#AEB1BA', fontFamily: bodyFont, fontSize: 15, lineHeight: 25 },
+  offerStudioWindow: { minHeight: 600, marginTop: 58, borderWidth: 1, borderColor: OFFER_COLORS.line, borderRadius: 22, backgroundColor: OFFER_COLORS.ice, overflow: 'hidden', ...Platform.select({ web: { boxShadow: '0 36px 80px rgba(0,0,0,.32)' }, default: { elevation: 10 } }) },
+  offerStudioWindowCompact: { minHeight: 650 },
+  offerStudioTopbar: { height: 70, paddingHorizontal: 28, borderBottomWidth: 1, borderBottomColor: OFFER_COLORS.line, backgroundColor: COLORS.white, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  offerStudioLogo: { color: OFFER_COLORS.navy, fontFamily: 'serif', fontSize: 17 },
+  offerStudioWebsite: { color: OFFER_COLORS.blue, fontFamily: bodyFont, fontSize: 10, fontWeight: '800' },
+  offerStudioContent: { padding: 34 },
+  offerStudioPrivate: { color: OFFER_COLORS.blue, fontFamily: bodyFont, fontSize: 8, fontWeight: '900', letterSpacing: 2 },
+  offerStudioHeading: { marginTop: 18, color: OFFER_COLORS.navy, fontFamily: 'serif', fontSize: 47, lineHeight: 49 },
+  offerStudioHeadingCompact: { fontSize: 36, lineHeight: 38 },
+  offerStudioIntro: { marginTop: 10, color: OFFER_COLORS.muted, fontFamily: bodyFont, fontSize: 12, lineHeight: 19 },
+  offerStudioBrandBar: { marginTop: 22, paddingHorizontal: 16, paddingVertical: 13, borderWidth: 1, borderColor: OFFER_COLORS.line, borderRadius: 12, backgroundColor: 'rgba(255,255,255,.62)', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 16 },
+  offerStudioBrandLabel: { flex: 1, color: OFFER_COLORS.blue, fontFamily: bodyFont, fontSize: 7, fontWeight: '900', letterSpacing: 1.1 },
+  offerStudioSwatches: { flexDirection: 'row', gap: 7 },
+  offerStudioSwatch: { width: 17, height: 17, borderWidth: 2, borderColor: COLORS.white, borderRadius: 9, ...Platform.select({ web: { boxShadow: '0 1px 4px rgba(17,25,54,.2)' }, default: { elevation: 2 } }) },
+  offerStudioTabs: { marginTop: 22, borderBottomWidth: 1, borderBottomColor: OFFER_COLORS.line, flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  offerStudioTab: { paddingHorizontal: 13, paddingVertical: 13 },
+  offerStudioTabActive: { borderBottomWidth: 2, borderBottomColor: OFFER_COLORS.blue },
+  offerStudioTabText: { color: OFFER_COLORS.muted, fontFamily: bodyFont, fontSize: 10, fontWeight: '700' },
+  offerStudioTabTextActive: { color: OFFER_COLORS.blue },
+  offerStudioTable: { marginTop: 24, borderWidth: 1, borderColor: OFFER_COLORS.line, backgroundColor: COLORS.white },
+  offerStudioTableHeader: { minHeight: 65, paddingHorizontal: 22, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  offerStudioTableTitle: { color: OFFER_COLORS.blue, fontFamily: bodyFont, fontSize: 9, fontWeight: '900', letterSpacing: 1.2 },
+  offerStudioAdd: { paddingHorizontal: 15, paddingVertical: 10, borderRadius: 19, backgroundColor: OFFER_COLORS.navy },
+  offerStudioAddText: { color: COLORS.white, fontFamily: bodyFont, fontSize: 9, fontWeight: '800' },
+  offerStudioRow: { minHeight: 66, paddingHorizontal: 22, borderTopWidth: 1, borderTopColor: '#E2E7F4', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 16 },
+  offerStudioRowTitle: { color: OFFER_COLORS.navy, fontFamily: bodyFont, fontSize: 11, fontWeight: '700' },
+  offerStudioRowType: { marginTop: 4, color: OFFER_COLORS.muted, fontFamily: bodyFont, fontSize: 8 },
+  offerStudioEdit: { color: OFFER_COLORS.blue, fontFamily: bodyFont, fontSize: 9, fontWeight: '800' },
+  offerIncluded: { alignSelf: 'center', paddingVertical: 124, flexDirection: 'row', justifyContent: 'space-between', gap: 75 },
+  offerIncludedStack: { flexDirection: 'column', gap: 52 },
+  offerIncludedHeading: { flex: 0.85 },
+  offerIncludedTitle: { maxWidth: 470, color: COLORS.ink, fontFamily: headingFont, fontSize: 51, lineHeight: 51, fontWeight: '900', letterSpacing: -2.7 },
+  offerIncludedTitleCompact: { fontSize: 41, lineHeight: 42, letterSpacing: -2.2 },
+  offerIncludedList: { flex: 1.15, borderTopWidth: 1, borderTopColor: COLORS.line },
+  offerIncludedRow: { minHeight: 78, paddingHorizontal: 5, borderBottomWidth: 1, borderBottomColor: COLORS.line, flexDirection: 'row', alignItems: 'center', gap: 18 },
+  offerIncludedNumber: { width: 38, color: '#999DA7', fontFamily: headingFont, fontSize: 9, fontWeight: '800' },
+  offerIncludedText: { flex: 1, color: COLORS.ink, fontFamily: bodyFont, fontSize: 14, fontWeight: '700', lineHeight: 20 },
+  offerIncludedCheck: { color: OFFER_COLORS.blue, fontFamily: bodyFont, fontSize: 17, fontWeight: '800' },
   footer: { minHeight: 185, alignSelf: 'center', paddingVertical: 42, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 20 },
   footerCompact: { flexDirection: 'column', justifyContent: 'center' },
   footerText: { color: COLORS.muted, fontFamily: bodyFont, fontSize: 12 },

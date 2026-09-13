@@ -31,5 +31,6 @@ Portfolio routes use URL hashes so they keep working on any static host without 
 - `#projects/marios-papaiosif`
 - `#projects/geumio`
 - `#projects/diatrofologoi`
+- `#solutions/professional-website`
 
-All contact calls-to-action open the BuildInBlu Instagram profile, while each case study links to its live project.
+All contact calls-to-action open the BuildInBlu Instagram profile, while each case study links to its live project. The custom professional website page includes a dedicated pricing enquiry CTA.
